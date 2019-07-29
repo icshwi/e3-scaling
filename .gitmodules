@@ -1,0 +1,4 @@
+[submodule "m_scaling"]
+	path = m_scaling
+	url = git@gitlab.esss.lu.se:gabrielfedel/m_scaling
+	ignore = all
