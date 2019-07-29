@@ -1,0 +1,4 @@
+require scaling, master
+scalingConfigure("scalingTest", "/home/gabriel/code/scaling/epics_mod/iocBoot/iocscalingIOC/test.csv")
+
+dbLoadRecords("/epics/base-3.15.6/require/3.1.0/siteMods/scaling/master/db/scaling.db","PREFIX=TESTSCALING,PORT=scalingTest,ADDR=0,TIMEOUT=1,MAX_ELEM=1024")
