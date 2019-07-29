@@ -2,3 +2,6 @@
 	path = m_scaling
 	url = git@gitlab.esss.lu.se:gabrielfedel/m_scaling
 	ignore = all
+[submodule "scaling"]
+	path = scaling
+	url = https://gitlab.esss.lu.se/icshwi/m-epics-scaling
