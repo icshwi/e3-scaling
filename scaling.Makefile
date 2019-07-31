@@ -39,6 +39,11 @@ ifneq ($(strip $(ASYN_DEP_VERSION)),)
 asyn_VERSION=$(ASYN_DEP_VERSION)
 endif
 
+ifneq ($(strip $(CALC_DEP_VERSION)),)
+calc_VERSION=$(CALC_DEP_VERSION)
+endif
+
+
 #ifneq ($(strip $(SEQUENCER_DEP_VERSION)),)
 #sequencer_VERSION=$(SEQUENCER_DEP_VERSION)
 #endif
@@ -176,6 +181,9 @@ DBDS += $(APPSRC)/scalingRegister.dbd
 SCRIPTS += $(wildcard ../iocsh/*.iocsh)
 
 TEMPLATES += $(APPDB)/scaling.db
+TEMPLATES += $(wildcard $(APPDB)/*.template)
+TEMPLATES += $(APPDB)/scaling_llrf.substitutions
+
 
 
 #USR_DBFLAGS += -I . -I ..
