@@ -4,4 +4,4 @@
 	ignore = all
 [submodule "scaling"]
 	path = scaling
-	url = https://gitlab.esss.lu.se/icshwi/m-epics-scaling
+	url = https://gitlab.esss.lu.se/icshwi/m-epics-scaling.git
