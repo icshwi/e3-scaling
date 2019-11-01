@@ -1,7 +1,7 @@
-[submodule "m_scaling"]
-	path = m_scaling
-	url = git@gitlab.esss.lu.se:gabrielfedel/m_scaling
+[submodule "scaling-dev"]
+	path = scaling-dev
+	url = https://gitlab.esss.lu.se/epics-modules/scaling.git
 	ignore = all
 [submodule "scaling"]
 	path = scaling
-	url = https://gitlab.esss.lu.se/icshwi/m-epics-scaling.git
+	url = https://gitlab.esss.lu.se/epics-modules/scaling.git

@@ -75,11 +75,13 @@ APPSRC:=$(APP)/src
 
 HEADERS += $(APPSRC)/scaling.h
 HEADERS += $(APPSRC)/loadcsv.h
+HEADERS += $(APPSRC)/lutTools.h
 # HEADERS += $(DBDINC_HDRS)
 
 
 SOURCES += $(APPSRC)/scaling.cpp
 SOURCES += $(APPSRC)/loadcsv.cpp
+SOURCES += $(APPSRC)/lutTools.cpp
 # # DBDINC_SRCS should be last of the series of SOURCES
 # SOURCES += $(DBDINC_SRCS)
 
