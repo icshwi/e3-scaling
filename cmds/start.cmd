@@ -1,4 +1,4 @@
-require scaling, 1.5.0
+require scaling, 1.6.1
 
 
 scalingConfigure("scaling", 1)
