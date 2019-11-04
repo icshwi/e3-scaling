@@ -1,0 +1,28 @@
+---
+stages:
+  - build
+  - test
+
+build:
+  tags:
+    - docker
+  stage: build
+  image: registry.esss.lu.se/gabrielfedel/docker-e3:req3.1.0
+  script:
+    - make vars
+    - make init
+    - make build
+    - make install
+
+test:
+  tags:
+    - docker
+  stage: test
+  image: registry.esss.lu.se/gabrielfedel/docker-e3-test:req3.1.0
+  script:
+    - make vars
+    - make init
+    - make build
+    - make install
+    - procServ -P 2000 /epics/base-3.15.6/require/3.1.0/bin/iocsh.bash cmds/start.cmd
+    - /usr/local/bin/pytest --pref=TEST:A scaling/tests
