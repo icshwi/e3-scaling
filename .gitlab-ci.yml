@@ -9,6 +9,23 @@ build:
   stage: build
   image: registry.esss.lu.se/gabrielfedel/docker-e3:next
   script:
+    - yes | ../e3_building_config.bash -b 3.15.6 -r 3.1.0 setup
+    - make vars
+    - make init
+    - make build
+    - make install
+    - yes | ../e3_building_config.bash -b 3.15.6 -r 3.1.2 setup
+    - make vars
+    - make init
+    - make build
+    - make install
+    - killall procServ
+    - yes | ../e3_building_config.bash -b 7.0.3 -r 3.1.0 setup
+    - make vars
+    - make init
+    - make build
+    - make install
+    - yes | ../e3_building_config.bash -b 7.0.3 -r 3.1.2 setup
     - make vars
     - make init
     - make build
@@ -22,6 +39,7 @@ test:
   before_script:
     - yum -y install psmisc
   script:
+    - yes | ../e3_building_config.bash -b 3.15.6 -r 3.1.0 setup
     - make vars
     - make init
     - make build
@@ -29,12 +47,27 @@ test:
     - procServ -P 2000 /epics/base-3.15.6/require/3.1.0/bin/iocsh.bash cmds/start.cmd
     - pytest --pref=TEST:A scaling/tests
     - killall procServ
+    - yes | ../e3_building_config.bash -b 3.15.6 -r 3.1.2 setup
+    - make vars
+    - make init
+    - make build
+    - make install
     - procServ -P 2000 /epics/base-3.15.6/require/3.1.2/bin/iocsh.bash cmds/start.cmd
     - pytest --pref=TEST:A scaling/tests
     - killall procServ
+    - yes | ../e3_building_config.bash -b 7.0.3 -r 3.1.0 setup
+    - make vars
+    - make init
+    - make build
+    - make install
     - procServ -P 2000 /epics/base-7.0.3/require/3.1.0/bin/iocsh.bash cmds/start.cmd
     - pytest --pref=TEST:A scaling/tests
     - killall procServ
+    - yes | ../e3_building_config.bash -b 7.0.3 -r 3.1.2 setup
+    - make vars
+    - make init
+    - make build
+    - make install
     - procServ -P 2000 /epics/base-7.0.3/require/3.1.2/bin/iocsh.bash cmds/start.cmd
     - pytest --pref=TEST:A scaling/tests
     - killall procServ
