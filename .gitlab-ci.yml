@@ -7,7 +7,7 @@ build:
   tags:
     - docker
   stage: build
-  image: registry.esss.lu.se/gabrielfedel/docker-e3:req3.1.0
+  image: registry.esss.lu.se/gabrielfedel/docker-e3:next
   script:
     - make vars
     - make init
@@ -18,11 +18,23 @@ test:
   tags:
     - docker
   stage: test
-  image: registry.esss.lu.se/gabrielfedel/docker-e3-test:req3.1.0
+  image: registry.esss.lu.se/gabrielfedel/docker-e3-test:next
+  before_script:
+    - yum -y install psmisc
   script:
     - make vars
     - make init
     - make build
     - make install
     - procServ -P 2000 /epics/base-3.15.6/require/3.1.0/bin/iocsh.bash cmds/start.cmd
-    - /usr/local/bin/pytest --pref=TEST:A scaling/tests
+    - pytest --pref=TEST:A scaling/tests
+    - killall procServ
+    - procServ -P 2000 /epics/base-3.15.6/require/3.1.2/bin/iocsh.bash cmds/start.cmd
+    - pytest --pref=TEST:A scaling/tests
+    - killall procServ
+    - procServ -P 2000 /epics/base-7.0.3/require/3.1.0/bin/iocsh.bash cmds/start.cmd
+    - pytest --pref=TEST:A scaling/tests
+    - killall procServ
+    - procServ -P 2000 /epics/base-7.0.3/require/3.1.2/bin/iocsh.bash cmds/start.cmd
+    - pytest --pref=TEST:A scaling/tests
+    - killall procServ
