@@ -73,19 +73,22 @@ APPSRC:=$(APP)/src
 # DBDINC_DEPS = $(subst .c,$(DEP), $(DBDINC_SRCS:$(APPSRC)/%=%))
 
 
-HEADERS += $(APPSRC)/scaling.h
 HEADERS += $(APPSRC)/loadcsv.h
 HEADERS += $(APPSRC)/lutTools.h
+HEADERS += $(APPSRC)/scalingBase.h
+HEADERS += $(APPSRC)/scalingLinear.h
+HEADERS += $(APPSRC)/scalingNonLinear.h
 # HEADERS += $(DBDINC_HDRS)
 
 
-SOURCES += $(APPSRC)/scaling.cpp
 SOURCES += $(APPSRC)/loadcsv.cpp
 SOURCES += $(APPSRC)/lutTools.cpp
+SOURCES += $(APPSRC)/scalingBase.cpp
+SOURCES += $(APPSRC)/scalingLinear.cpp
+SOURCES += $(APPSRC)/scalingNonLinear.cpp
 # # DBDINC_SRCS should be last of the series of SOURCES
 # SOURCES += $(DBDINC_SRCS)
 
-DBDS += $(APPSRC)/scalingRegister.dbd
 # DBDS += $(APPSRC)/calcSupport_withSNCSEQ.dbd
 # DBDS += $(APPSRC)/calcSupport_withSSCAN.dbd
 
@@ -170,19 +173,17 @@ DBDS += $(APPSRC)/scalingRegister.dbd
 
 SCRIPTS += $(wildcard ../iocsh/*.iocsh)
 
-TEMPLATES += $(APPDB)/scaling.db
 TEMPLATES += $(wildcard $(APPDB)/*.template)
-TEMPLATES += $(APPDB)/scaling_llrf.substitutions
 
 
 
 #USR_DBFLAGS += -I . -I ..
 #USR_DBFLAGS += -I $(EPICS_BASE)/db
-USR_DBFLAGS += -I $(APPDB)
+#USR_DBFLAGS += -I $(APPDB)
 
 
 
-SUBS=$(wildcard $(APPDB)/*.substitutions)
+#SUBS=$(wildcard $(APPDB)/*.substitutions)
 #TMPS=$(wildcard $(APPDB)/*.template)
 
 db: $(SUBS) $(TMPS)
