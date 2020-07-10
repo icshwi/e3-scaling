@@ -73,7 +73,9 @@ APPSRC:=$(APP)/src
 # DBDINC_DEPS = $(subst .c,$(DEP), $(DBDINC_SRCS:$(APPSRC)/%=%))
 
 
-HEADERS += $(APPSRC)/scaling.h
+HEADERS += $(APPSRC)/scalingBase.h
+HEADERS += $(APPSRC)/scalingLinear.h
+HEADERS += $(APPSRC)/scalingNonLinear.h
 HEADERS += $(APPSRC)/loadcsv.h
 HEADERS += $(APPSRC)/lutTools.h
 # HEADERS += $(DBDINC_HDRS)
@@ -172,9 +174,9 @@ SOURCES += $(APPSRC)/lutTools.cpp
 
 SCRIPTS += $(wildcard ../iocsh/*.iocsh)
 
-TEMPLATES += $(APPDB)/scaling.db
+#TEMPLATES += $(APPDB)/scaling.db
 TEMPLATES += $(wildcard $(APPDB)/*.template)
-TEMPLATES += $(APPDB)/scaling_llrf.substitutions
+#TEMPLATES += $(APPDB)/scaling_llrf.substitutions
 
 
 
