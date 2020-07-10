@@ -79,13 +79,15 @@ HEADERS += $(APPSRC)/lutTools.h
 # HEADERS += $(DBDINC_HDRS)
 
 
-SOURCES += $(APPSRC)/scaling.cpp
+SOURCES += $(APPSRC)/scalingBase.cpp
+SOURCES += $(APPSRC)/scalingLinear.cpp
+SOURCES += $(APPSRC)/scalingNonLinear.cpp
 SOURCES += $(APPSRC)/loadcsv.cpp
 SOURCES += $(APPSRC)/lutTools.cpp
 # # DBDINC_SRCS should be last of the series of SOURCES
 # SOURCES += $(DBDINC_SRCS)
 
-DBDS += $(APPSRC)/scalingRegister.dbd
+#DBDS += $(APPSRC)/scalingRegister.dbd
 # DBDS += $(APPSRC)/calcSupport_withSNCSEQ.dbd
 # DBDS += $(APPSRC)/calcSupport_withSSCAN.dbd
 
