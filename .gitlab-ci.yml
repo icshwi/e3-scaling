@@ -7,4 +7,5 @@ build:
   script:
     - mkdir ~/epics
     - mount -t nfs 172.30.5.156:/e3 ~/epics
+    - ls
 
