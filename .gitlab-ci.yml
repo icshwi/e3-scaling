@@ -7,5 +7,5 @@ build:
   image: centos:7
   script:
     - mkdir ~/epics
-    - mount -t nfs 172.16.6.57:/e3 ~/epics
+    - mount -t nfs 172.30.5.156:/e3 ~/epics
 
